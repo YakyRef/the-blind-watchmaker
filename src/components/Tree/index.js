@@ -1,7 +1,11 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import PropTypes from "prop-types";
-import { addTreeToHistory, createTreeChild } from "./../../actions";
+import {
+  addTreeToHistory,
+  createTreeChild,
+  setParentTree
+} from "./../../actions";
 import VisualTree from "../VisualTree";
 import {
   getCurrentTree,
@@ -20,7 +24,7 @@ class Tree extends Component {
     // add current Tree to the history state.
     addTreeToHistory(currentTree);
   }
-
+  
   render() {
     const {
       treeHeight,
@@ -28,7 +32,9 @@ class Tree extends Component {
       treeWidth,
       trunkColor,
       branchesNumber,
-      currentTree
+      currentTree,
+      setParentTree,
+      createTreeChild
     } = this.props;
     return (
       <div className="container">
@@ -47,13 +53,17 @@ class Tree extends Component {
         <div className="childs-tree-container">
           {currentTree.children &&
             currentTree.children.map(
-              ({
-                treeHeight,
-                branchesColor,
-                treeWidth,
-                trunkColor,
-                branchesNumber
-              },i) => (
+              (
+                {
+                  treeHeight,
+                  branchesColor,
+                  treeWidth,
+                  trunkColor,
+                  currentTree,
+                  branchesNumber
+                },
+                i
+              ) => (
                 <VisualTree
                   isChildren
                   treeHeight={treeHeight}
@@ -61,6 +71,8 @@ class Tree extends Component {
                   treeWidth={treeWidth}
                   trunkColor={trunkColor}
                   branchesNumber={branchesNumber}
+                  setParentTree={setParentTree}
+                  createTreeChild={createTreeChild}
                   key={i}
                 />
               )
@@ -78,7 +90,8 @@ Tree.propTypes = {
   treeWidth: PropTypes.number,
   trunkColor: PropTypes.array,
   branchesColor: PropTypes.array,
-  addTreeToHistory: PropTypes.func
+  addTreeToHistory: PropTypes.func,
+  setParentTree: PropTypes.func
 };
 
 const mapStateToProps = state => {
@@ -94,5 +107,5 @@ const mapStateToProps = state => {
 
 export default connect(
   mapStateToProps,
-  { addTreeToHistory, createTreeChild }
+  { addTreeToHistory, createTreeChild, setParentTree }
 )(Tree);

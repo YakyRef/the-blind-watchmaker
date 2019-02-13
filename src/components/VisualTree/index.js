@@ -7,14 +7,35 @@ const VisualTree = ({
   trunkColor,
   branchesColor,
   branchesNumber,
-  isChildren
+  isChildren,
+  setParentTree,
+  createTreeChild
 }) => {
   const arrayToRgb = arr => {
     return `rgb(${arr.join()})`;
   };
 
   return (
-    <div className={isChildren ? "children-tree" : "parent-tree"}>
+    <div
+      className={isChildren ? "children-tree" : "parent-tree"}
+      onClick={() => {
+        isChildren &&
+          setParentTree({
+            treeHeight: treeHeight,
+            treeWidth: treeWidth,
+            trunkColor: trunkColor,
+            branchesColor: branchesColor,
+            branchesNumber: branchesNumber
+          });
+        createTreeChild({
+          treeHeight: treeHeight,
+          treeWidth: treeWidth,
+          trunkColor: trunkColor,
+          branchesColor: branchesColor,
+          branchesNumber: branchesNumber
+        });
+      }}
+    >
       <div>branchesNumber: {branchesNumber}</div>
       <div>treeHeight: {treeHeight}</div>
       <div>treeWidth: {treeWidth}</div>
@@ -34,7 +55,9 @@ VisualTree.propTypes = {
   treeWidth: PropTypes.number,
   trunkColor: PropTypes.array,
   branchesColor: PropTypes.array,
-  isChildren: PropTypes.bool
+  isChildren: PropTypes.bool,
+  setParentTree: PropTypes.func,
+  createTreeChild: PropTypes.func
 };
 
 export default VisualTree;

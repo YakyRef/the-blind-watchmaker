@@ -1,4 +1,4 @@
-import { CREATE_CHILDREN } from "../constants/action-types";
+import { CREATE_CHILDREN,SET_PARENT } from "../constants/action-types";
 
 const initialState = {
   treeHeight: 2.2,
@@ -12,6 +12,8 @@ const treeReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case CREATE_CHILDREN:
       return { ...state, children: payload };
+    case SET_PARENT:
+      return { ...state, ...payload };
 
     default:
       return state;

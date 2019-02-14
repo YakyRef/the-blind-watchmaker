@@ -1,3 +1,4 @@
+import undoable, { distinctState } from 'redux-undo';
 import { CREATE_CHILDREN,SET_PARENT } from "../constants/action-types";
 
 const initialState = {
@@ -8,6 +9,7 @@ const initialState = {
   branchesColor: [0, 255, 102],
   children: []
 };
+
 const treeReducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case CREATE_CHILDREN:
@@ -19,5 +21,9 @@ const treeReducer = (state = initialState, { type, payload }) => {
       return state;
   }
 };
+
+const treeReducerWithTimeTravel = undoable(treeReducer, {
+  filter: distinctState()
+})
 
 export default treeReducer;

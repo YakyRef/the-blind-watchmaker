@@ -8,3 +8,6 @@ export const getBranchesNumber = state =>
 export const getTrunkColor = state => getTreePartialState(state).trunkColor;
 export const getBranchesColor = state =>
   getTreePartialState(state).branchesColor;
+
+export const getFutureHistoryState = state => state.treeEvolution.future;
+export const getPastHistoryState = state => state.treeEvolution.past;

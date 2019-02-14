@@ -1,4 +1,8 @@
-import { ADD_TREE, CREATE_CHILDREN,SET_PARENT } from "../constants/action-types";
+import {
+  ADD_TREE,
+  CREATE_CHILDREN,
+  SET_PARENT
+} from "../constants/action-types";
 import { renderChildren } from "../helpers/renderChildren";
 export const createTreeChild = tree => {
   return {
@@ -12,7 +16,7 @@ export const addTreeToHistory = tree => {
     payload: tree
   };
 };
-export const setParentTree = tree => {  
+export const setParentTree = tree => {
   return {
     type: SET_PARENT,
     payload: tree

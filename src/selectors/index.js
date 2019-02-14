@@ -1,4 +1,4 @@
-const getTreePartialState = state => state.treeEvolution;
+const getTreePartialState = state => state.treeEvolution.present;
 
 export const getCurrentTree = state => getTreePartialState(state);
 export const getTreeHeight = state => getTreePartialState(state).treeHeight;

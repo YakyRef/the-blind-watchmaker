@@ -9,5 +9,12 @@
     background: #dddddd;
     >span{
         margin: 0 30px;
+        cursor: pointer;
+        height: 25px;
+        padding: 3px 19px;
+        border: 1px solid #a29494;
+        border-radius: 5px;
+        vertical-align: middle;
+        align-self:center;
     }
 }

@@ -14,6 +14,12 @@ const VisualTree = ({
   const arrayToRgb = arr => {
     return `rgb(${arr.join()})`;
   };
+  const trunkStyle = {
+    backgroundColor: arrayToRgb(trunkColor)
+  };
+  const branchesStyle = {
+    backgroundColor: arrayToRgb(branchesColor)
+  };
 
   return (
     <div
@@ -36,6 +42,18 @@ const VisualTree = ({
         });
       }}
     >
+      <div
+        className="tree-model"
+        style={{
+          height: treeHeight * 20,
+          width: treeWidth * 15,
+          maxWidth: "300px"
+        }}
+      >
+        <div className="tree-branches" style={branchesStyle} />
+        <div className="tree-trunk" style={trunkStyle} />
+      </div>
+
       <div>branchesNumber: {branchesNumber}</div>
       <div>treeHeight: {treeHeight}</div>
       <div>treeWidth: {treeWidth}</div>

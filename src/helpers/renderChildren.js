@@ -9,8 +9,8 @@ export const renderChildren = ({
 }) => {
   const childrenArray = [];
   const childrenNumber = 3;
-  const maxRandomRange = 2;
-  const minRandomRange = 0;
+  const maxRandomRange = 1.4;
+  const minRandomRange = 0.1;
   const roundNumber = num => parseFloat(parseFloat(num).toFixed(2));
   for (let i = 0; i < childrenNumber; i++) {
     const result = {};

@@ -1,33 +1,7 @@
 @import "./components/Footer/style.scss";
+@import "./components/VisualTree/style.scss";
 
 .App {
   text-align: center;
-  .container {
-    .current-tree-container {
-      margin-bottom: 50px;
-      .parent-tree {
-        max-width: 400px;
-        margin: auto;
-        margin-top: 25px;
-        border: 1px solid #ccc;
-        padding: 5px;
-        font-size: 20px;
-        line-height: 2;
-      }
-    }
-    .childs-tree-container {      
-      display: flex;
-      justify-content: space-around;
-      width: 100vw;
-      > h4 {
-        display: block;
-      }
-      .children-tree {
-        border: 1px solid #ccc;
-        padding: 5px;
-        font-size: 17px;
-        line-height: 1.5;
-      }
-    }
-  }
+ 
 }

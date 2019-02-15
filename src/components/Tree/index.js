@@ -49,7 +49,8 @@ class Tree extends Component {
           />
         </div>
 
-        <h4>Current Children</h4>
+        <h3>Please select a child : </h3>
+        
         <div className="childs-tree-container">
           {currentTree.children &&
             currentTree.children.map(

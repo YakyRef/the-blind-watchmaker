@@ -57,10 +57,10 @@ const VisualTree = ({
       <div>branchesNumber: {branchesNumber}</div>
       <div>treeHeight: {treeHeight}</div>
       <div>treeWidth: {treeWidth}</div>
-      <div style={{ backgroundColor: arrayToRgb(branchesColor) }}>
+      <div style={{ color: arrayToRgb(branchesColor) }}>
         branchesColor: {branchesColor}
       </div>
-      <div style={{ backgroundColor: arrayToRgb(trunkColor) }}>
+      <div style={{ color: arrayToRgb(trunkColor) }}>
         trunkColor: {trunkColor}
       </div>
     </div>
